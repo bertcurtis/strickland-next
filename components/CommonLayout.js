@@ -9,7 +9,7 @@ const Layout = (props) => (
         </Head>
         <Header />
         <div>   
-        {props.children}
+            {props.children}
         </div>
         <style jsx global>{`
         body { 

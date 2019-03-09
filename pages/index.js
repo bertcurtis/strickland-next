@@ -1,11 +1,23 @@
 import Layout from '../components/CommonLayout.js'
 import img from '../img/logo.webp'
 
+/*
+<div class='imgbox'>
+      <img class='center-fit' src={img}/>
+    </div>*/
 export default () => (
   <Layout>
     <h1>Strickland Auto</h1>
-    <img src={img}/>
     <style jsx>{`
+      .center-fit {
+        max-width: 100%;
+        max-height: 100vh;
+        margin: auto;
+      }
+      .imgbox {
+        display: grid;
+        height: 100%;
+      }
       h1, a {
         font-family: "Arial";
       }

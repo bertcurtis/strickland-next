@@ -1,0 +1,55 @@
+{
+  "modules": {
+    "byIdentifier": {
+      "multi private-next-pages/about.js": 0,
+      "multi private-next-pages/car.js": 1,
+      "multi private-next-pages/contact.js": 2,
+      "multi private-next-pages/index.js": 3,
+      "multi private-next-pages/inventory.js": 4,
+      "multi next/dist/pages/_app": 5,
+      "multi next/dist/pages/_error": 6,
+      "multi next/dist/pages/_document": 7
+    },
+    "usedIds": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7
+    }
+  },
+  "chunks": {
+    "byName": {
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/_app.js": 0,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/_document.js": 1,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/_error.js": 2,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/about.js": 3,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/car.js": 4,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/contact.js": 5,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/index.js": 6,
+      "static/UBuw2XF5R01FjrgEtAyzb/pages/inventory.js": 7,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/_app.js": 8,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/_document.js": 9,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/_error.js": 10,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/about.js": 11,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/car.js": 12,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/contact.js": 13,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/index.js": 14,
+      "static/B47SfZoKhUbld8hPc9P_3/pages/inventory.js": 15
+    },
+    "bySource": {},
+    "usedIds": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      8,
+      9
+    ]
+  }
+}

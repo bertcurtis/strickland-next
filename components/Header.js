@@ -29,10 +29,7 @@ const Header = () => (
             </li>
             ))}
         </ul>
-        <style jsx>{
-            `body {
-            margin: 0;
-        }
+        <style jsx>{`
         .active {
             background-color: #0000FF;
         }
