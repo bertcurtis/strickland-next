@@ -1,12 +1,39 @@
 import Layout from '../components/CommonLayout.js'
 import fetch from 'isomorphic-unfetch'
 import {withRouter} from 'next/router'
-import Markdown from 'react-markdown'
+import Link from 'next/link'
 
 
 const Vehicle = ( {key, vehicleData} ) => (
   <li key={key}>
-    {`Description: ${vehicleData.description}`}
+    <div>
+      <h3>{`${vehicleData.year} ${vehicleData.make} ${vehicleData.model}`}</h3>
+        <div>
+          <p>{`Miles: ${vehicleData.miles}`}</p>
+          <p>{`Color: ${vehicleData.extcolor}`}</p>
+          <p>{`Trim: ${vehicleData.trim}`}</p>
+          <p>{`Price: ${vehicleData.price}`}</p>
+          <p>{`${vehicleData.description}`}
+          </p>
+          <ul>
+            <li>
+              <img src={vehicleData.imgs[0]}/>
+            </li>
+            <li>
+              <img src={vehicleData.imgs[1]}/>
+            </li>
+            <li>
+              <img src={vehicleData.imgs[2]}/>
+            </li>
+            <li>
+              <Link href="/car">
+                <a>See More...</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+    </div>
+    
   </li>
 )
 

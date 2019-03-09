@@ -1,8 +1,10 @@
 import Layout from '../components/CommonLayout.js'
+import img from '../img/logo.webp'
 
 export default () => (
   <Layout>
-    <h1>My Blog</h1>
+    <h1>Strickland Auto</h1>
+    <img src={img}/>
     <style jsx>{`
       h1, a {
         font-family: "Arial";
