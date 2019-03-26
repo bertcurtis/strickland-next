@@ -4,42 +4,42 @@
     "/about": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/car": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/contact": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/index": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/inventory": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/_app": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/_error": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ],
     "/": [
       "static/runtime/webpack-f0c6edbea5b547edc23f.js",
       "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-da7adebcc3da9eb23cb8.js"
+      "static/runtime/main-8455cf2abfb515dbeb19.js"
     ]
   }
 }

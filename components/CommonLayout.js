@@ -11,7 +11,7 @@ const Layout = (props) => (
         <div>   
             {props.children}
         </div>
-        <style jsx global>{`
+        <style global jsx>{`
         body { 
             font: 13px menlo;
             margin: 0;
