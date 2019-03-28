@@ -1,7 +1,7 @@
 import Layout from '../components/CommonLayout.js'
 
 const Contact = () => (
-    <Layout>  
+    <Layout title='Contact Us'>  
       <p>This is the contact us page</p>
     </Layout>
   )

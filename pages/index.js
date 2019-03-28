@@ -6,7 +6,7 @@ import img from '../img/logo.webp'
       <img class='center-fit' src={img}/>
     </div>*/
 export default () => (
-  <Layout>
+  <Layout title='Strickland Auto'>
     <h1>Strickland Auto</h1>
     <style jsx>{`
       .center-fit {

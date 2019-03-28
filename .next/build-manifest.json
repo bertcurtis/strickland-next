@@ -1,45 +1,27 @@
 {
-  "devFiles": [],
+  "devFiles": [
+    "static/development/dll/dll_a1332422834f747f7fe3.js"
+  ],
   "pages": {
-    "/about": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
-    ],
-    "/car": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
-    ],
-    "/contact": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
-    ],
-    "/index": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
-    ],
-    "/inventory": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
-    ],
     "/_app": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/_error": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/index": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/inventory": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ],
     "/": [
-      "static/runtime/webpack-f0c6edbea5b547edc23f.js",
-      "static/chunks/commons.94c1d63914ea69600ee6.js",
-      "static/runtime/main-8455cf2abfb515dbeb19.js"
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

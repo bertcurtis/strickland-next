@@ -8,7 +8,7 @@ const Layout = (props) => (
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
         <Header />
-        <div>   
+        <div className='main'>   
             {props.children}
         </div>
         <style global jsx>{`
@@ -16,6 +16,9 @@ const Layout = (props) => (
             font: 13px menlo;
             margin: 0;
             padding: 0;
+        }
+        .main {
+            margin-top: 50px;
         }
         `}</style>     
     </div>

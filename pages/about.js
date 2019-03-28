@@ -1,7 +1,7 @@
 import Layout from '../components/CommonLayout.js'
 
 const About = () => (
-    <Layout>  
+    <Layout title='About Strickland'>  
       <p>This is the about page</p>
     </Layout>
   )
