@@ -38,7 +38,9 @@ const Header = () => (
             color: white;
             text-align: center;
             padding: 14px 16px;
-            font-family: "Menlo";
+            font-family: "Arvo";
+            font-size: 100%;
+            text-transform: uppercase;
         }
         .home-img {
             background-image: url(${img});
@@ -53,6 +55,7 @@ const Header = () => (
         ul.topnav {
             position: fixed;
             top: 0;
+            z-index: 500;
             width: 100%;
             list-style-type: none;
             margin: 0;
