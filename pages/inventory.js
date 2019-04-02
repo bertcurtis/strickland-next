@@ -317,7 +317,7 @@ const Inventory = class extends Component {
           All {vehicles.length} vehicles shown. Search to narrow results 
         </div>
         <div className={filteredVehicleCount > 0 ? 'filtered-label' : 'hidden'}>
-          {filteredVehicleCount} vehicles shown
+          {filteredVehicleCount} vehicles found..
         </div>
         <form className='search' onSubmit={handleSubmit}> 
           <input name='search' type="text" placeholder="Search inventory.." onChange={handleChange}/>
