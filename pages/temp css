@@ -25,3 +25,47 @@
       .fourth-item:hover .overlay {
         opacity: 1;
       }
+
+
+
+
+
+
+
+            /*<div className='lightbox'>/*{isOpen &&
+       <Lightbox
+          mainSrc={this.props.vehicles[vehicleIndex].imgs[photoIndex]}
+          nextSrc={this.props.vehicles[vehicleIndex].imgs[(photoIndex + 1) % this.props.vehicles[vehicleIndex].imgs.length]}
+          prevSrc={this.props.vehicles[vehicleIndex].imgs[(photoIndex + this.props.vehicles[vehicleIndex].imgs.length - 1) % this.props.vehicles[vehicleIndex].imgs.length]}
+
+          onCloseRequest={() => this.setState({ isOpen: false })}
+          onMovePrevRequest={() => this.setState({
+            photoIndex: (photoIndex + this.props.vehicles[vehicleIndex].imgs.length - 1) % this.props.vehicles[vehicleIndex].imgs.length,
+          })}
+          onMoveNextRequest={() => this.setState({
+            photoIndex: (photoIndex + 1) % this.props.vehicles[vehicleIndex].imgs.length,
+          })}
+          wrapperClassName='lightbox'
+        />
+      }</div>*/
+
+
+      /*onSubmit={handleSubmit/*() => console.log("oops")this.setState({searchTerm: 'price'})*/}>*/
+
+          .vehicles-wrapper {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      align-content: center;
+      align-items: center;
+    }
+
+        form.search::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+            {this.filterVehicles(vehicles, query).map((vehicle, index) => (
+          this.renderVehicle(vehicle.id, vehicle, index)
+      ))}     

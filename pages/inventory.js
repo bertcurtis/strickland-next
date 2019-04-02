@@ -1,46 +1,43 @@
-import Layout from '../components/CommonLayout.js'
-import Lightbox from 'react-image-lightbox';
-import fetch from 'isomorphic-unfetch'
-import { withRouter } from 'next/router'
+import Layout from '../components/CommonLayout.js';
+import fetch from 'isomorphic-unfetch';
+import { withRouter } from 'next/router';
 import React, { Component } from 'react';
-import Link from '../components/Link.js'
 
 
-const searchAll = (term, data) => {
-  const dataMap = [];
-  dataMap.push(data);
-  const searchstrings = term.toString().split(" ");
-  const matcher = (regexp) => {
-    return obj => {
-    var found = false;
-    Object.keys(obj).forEach(key => {
-      if ( ! found) {
-        if ((typeof obj[key] == 'string') && regexp.exec(obj[key])) {
-          found = true;
-        }
-      }
-    });
-    return found;
-    };
-  }
-  
-  var matches = () => {
-  searchstrings.forEach(needle => {
-    console.log('searching for: %s', needle);
-    const re1 = new RegExp("\\b" + needle + "\\b", 'i');
-    return dataMap.filter(matcher(re1));
-  });
-}
-  return matches.length > 0 ? true : false;
-}
-
-const Vehicles = class extends Component {
+const Inventory = class extends Component {
   state = {
-    photoIndex: 0,
-    isOpen: false,
-    vehicleIndex: 0,
-    searchTerm: ""
+    tempQuery: this.props.tempQuery,
+    query: this.props.query,
+    vehicles: this.props.vehicles,
+    filteredVehicleCount: 0
   };
+
+  filteredVehicles = [];
+
+  /*
+  componentDidMount = () => {
+    this.setState({filteredVehicleLength: this.state.vehicles.length});
+  }*/
+
+  handleSubmit(event) {
+    this.setState({filteredVehicleCount: 0});
+    this.setState({query: this.state.tempQuery},
+      () => {
+        this.setState({filteredVehicleCount: this.filteredVehicles.length});
+      });
+    event.preventDefault();
+  }
+
+  handleChange(event) {
+    this.setState({tempQuery: event.target.value},
+      () => {
+        if (this.state.tempQuery == '') {
+          this.setState({filteredVehicleCount: 0});
+          this.setState({query: this.state.tempQuery});
+        }
+      });    
+  }
+
   getVehicleContainer = (vehicleData, vehicleIndex) => (
     <div>
       <div className="listing-wrapper">
@@ -141,7 +138,7 @@ const Vehicles = class extends Component {
         }
         .wrapper {
           display: grid;
-          grid-template-columns: repeat(4, 19vw);
+          grid-template-columns: repeat(4, 21vw);
           grid-template-rows: repeat(7, 7vw);
           grid-gap: 20px;
           width: 100%
@@ -255,8 +252,8 @@ const Vehicles = class extends Component {
       </style>
     </div>
   )
-  renderVehicle = (searchTerm, key, vehicleData, vehicleIndex) => (
-    /*searchAll(searchTerm, vehicleData) &&*/ <div key={key}>
+  renderVehicle = (key, vehicleData, vehicleIndex) => (
+    <div key={key}>
       <div className="background">
         {this.getVehicleContainer(vehicleData, vehicleIndex)}
       </div>
@@ -271,118 +268,186 @@ const Vehicles = class extends Component {
     </div>
   )
 
+  filterVehicles(vehicles, query){
+    var newv = [];
+    this.filteredVehicles = [];
+    if (query == '') {
+      newv = vehicles;
+    }
+    else {     
+      var countMatch = 0;
+      vehicles.forEach(data => {
+        var dataMap = [ data.price, data.description, data.year, data.model, data.vin, data.extcolor, data.transmission, data.make, data.trim, data.miles, data.intcolor];
+        dataMap.forEach(att => {
+          if (att.toLowerCase().search(query.toLowerCase()) !== -1) {
+            countMatch++;         
+          }
+        });
+        if (countMatch > 0) {
+          newv.push(data);
+          countMatch = 0;
+          this.filteredVehicles.push(data);
+        }
+      });
+    }
+    return newv;   
+  }
+
+
   render = () => {
+
     const {
-      photoIndex,
-      isOpen,
-      vehicleIndex,
-      searchTerm
+      vehicles,
+      query,
+      filteredVehicleCount
     } = this.state;
 
+    const handleChange = this.handleChange.bind(this);
+    const handleSubmit = this.handleSubmit.bind(this);
+    //const filterVehicles = this.filterVehicles.bind(this);
+
     return <Layout title='Inventory'>
-      <h1>WE HAVE WHAT YOU'RE LOOKING FOR, <i>GUARANTEED</i></h1>
-      <div className='text-content'>Committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Trucks!</div>
+      <div className='top-content'>
+        <h1>WE HAVE WHAT YOU'RE LOOKING FOR, <i>GUARANTEED</i></h1>
+        <div className='text-content'>Committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Trucks!
+        </div>
+      </div>
       <div className='search-container'>
-        <form className="search" onSubmit={() => this.setState({searchTerm: this.refs.searchValue})}>
-          <input type="text" placeholder="Search.." name="search" ref="searchValue"/>
+        <div className={filteredVehicleCount < 1 ? 'filtered-label' : 'hidden'}>
+          All {vehicles.length} vehicles shown. Search to narrow results 
+        </div>
+        <div className={filteredVehicleCount > 0 ? 'filtered-label' : 'hidden'}>
+          {filteredVehicleCount} vehicles shown
+        </div>
+        <form className='search' onSubmit={handleSubmit}> 
+          <input name='search' type="text" placeholder="Search inventory.." onChange={handleChange}/>
           <button type="submit"><i className="fa fa-search"></i></button>
         </form>
       </div>
-      <div className="wrapper">
-        {!searchTerm && this.props.vehicles.map((vehicle, index) => (
-          this.renderVehicle(searchTerm, vehicle.id, vehicle ,index)
-        ))}
+      <div className='vehicles-wrapper'>
+        {this.filterVehicles(vehicles, query).map((vehicle, index) => (
+          this.renderVehicle(vehicle.id, vehicle, index)
+        ))}      
       </div>
-      <div className='lightbox'>{isOpen &&
-        <Lightbox
-          mainSrc={this.props.vehicles[vehicleIndex].imgs[photoIndex]}
-          nextSrc={this.props.vehicles[vehicleIndex].imgs[(photoIndex + 1) % this.props.vehicles[vehicleIndex].imgs.length]}
-          prevSrc={this.props.vehicles[vehicleIndex].imgs[(photoIndex + this.props.vehicles[vehicleIndex].imgs.length - 1) % this.props.vehicles[vehicleIndex].imgs.length]}
-
-          onCloseRequest={() => this.setState({ isOpen: false })}
-          onMovePrevRequest={() => this.setState({
-            photoIndex: (photoIndex + this.props.vehicles[vehicleIndex].imgs.length - 1) % this.props.vehicles[vehicleIndex].imgs.length,
-          })}
-          onMoveNextRequest={() => this.setState({
-            photoIndex: (photoIndex + 1) % this.props.vehicles[vehicleIndex].imgs.length,
-          })}
-          wrapperClassName='lightbox'
-        />
-      }</div>
       <style jsx>{`{
         * {
           box-sizing: border-box;
         }
-    .wrapper {
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      align-content: center;
-      align-items: center;
-    }
-    .lightbox {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      align-items: center;
-    }
-    .text-content {
-      font-size: 190%;
-      text-align: center;
-      margin-bottom: 5px;
-    }
-    .search-container {
-      margin: auto;
-      max-width: 60%;
-    }
-    form.search input[type=text] {
-      padding: 10px;
-      font-size: 17px;
-      border: 1px solid grey;
-      float: left;
-      width: 80%;
-      background: #f1f1f1;
-    }
-    form.search button {
-      float: left;
-      width: 20%;
-      padding: 10px;
-      background: #0000FF;
-      color: white;
-      font-size: 17px;
-      border: 1px solid grey;
-      border-left: none; /* Prevent double borders */
-      cursor: pointer;
-    }    
-    form.search button:hover {
-      background: #0b7dda;
-    }
-    form.search::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-    h1 {
-      text-align: center;
-      padding: 5px;
-      font-size: 300%;
-    }
-  }`}
+        .top-content {
+          display: flex;
+          flex-direction: column;
+          padding: 5px;
+          align-content: center;
+          align-items: center;
+        }
+        .filtered-label {
+          font-size: 16px;
+          text-align: left;
+          position: absolute;
+          left: 5vw;
+          margin-top 30px;
+        }
+        .hidden {
+          display: none;
+        }
+        .text-content {
+          font-size: 180%;
+          text-align: center;
+          max-width: 800px;
+          margin-bottom: 15px;
+        }
+        .search-container {
+          display: flex;
+          flex-direction: row;
+          padding: 10px;
+          margin-bottom: 25px;
+          align-content: center;
+       }
+       .vehicles-wrapper {
+          display: flex;
+          flex-direction: column;
+          padding: 20px;
+          align-content: center;
+          align-items: center;
+        }
+        .search {
+          position: absolute;
+          right: 5vw;
+        }
+        form.search input[type=text] {
+          padding: 10px;
+          font-size: 17px;
+          border: 1px solid grey;
+          float: left;
+          width: 80%;
+          background: #f1f1f1;
+        }
+        form.search button {
+          float: left;
+          width: 20%;
+          padding: 10px;
+          background: #333; #0000FF;
+          color: white;
+          font-size: 17px;
+          border: 1px solid grey;
+          border-left: none; /* Prevent double borders */
+          cursor: pointer;
+        }    
+        form.search button:hover {
+          background: #0000FF;
+        }
+        form.search::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+      
+        h1 {
+          text-align: center;
+          padding: 5px;
+          font-size: 300%;
+        }
+        @media screen and (max-width: 700px) {
+          .search-container {
+            display: flex;
+            flex-direction: row;
+            padding: 10px;
+            margin-bottom: 0px;
+            align-content: center;
+            align-items: center;
+          }
+          .filtered-label {
+            font-size: 16px;
+            text-align: center;
+            position: relative;
+            margin-top 0px;
+            left: 0;
+          }
+          .search {
+            position: relative;
+            right: 0;
+          }
+        }
+      }`}
       </style>
     </Layout>
   }
 }
 
-Vehicles.getInitialProps = async ({ req }) => {
+
+Inventory.getInitialProps = async ({ req }) => {
   const res = await fetch('https://strickland-cars-api.herokuapp.com/cars')
   const data = await res.json()
 
   console.log(`Car data fetched. Count: ${data.length}`)
 
   return {
-    vehicles: data
+    vehicles: data,
+    query: 0,
+    tempQuery: 0
   }
 }
 
 
-export default withRouter(Vehicles);
+
+export default withRouter(Inventory);
