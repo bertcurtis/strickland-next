@@ -1,16 +1,5 @@
-import { timingSafeEqual } from "crypto";
-
-// Open the Modal
-function openModal() {
-    document.getElementById('myModal').style.display = "block";
-}
-
-// Close the Modal
-function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-}
-
 var slideIndex = 1;
+const slideCount = 0;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -48,35 +37,31 @@ const getSlides = (imgUrl) => {
     </div>
 }
 
-const Lightbox = (imgs) => {
+const getThumbnails = (imgs) => {
+  <div>
+    {imgs.map(img, index => (
+        <div className="column">
+          <img className="demo" src={img} onclick={currentSlide(index)}  />
+        </div>
+    ))}
+  </div>
+}
+
+const Lightbox = (imgs, closeHandler) => {
     <div>
         <div id="myModal" className="modal">
-            <span className="close cursor" onclick="closeModal()">&times;</span>
+            <span className="close cursor" onclick={closeHandler()}>&times;</span>
             <div className="modal-content">
               {imgs.map(img => {getSlides(img)})}
 
-                <a className="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a className="next" onclick="plusSlides(1)">&#10095;</a>
+                <a className="prev" onclick={plusSlides(-1)}>&#10094;</a>
+                <a className="next" onclick={plusSlides(1)}>&#10095;</a>
 
                 <div className="caption-container">
                     <p id="caption"></p>
                 </div>
+                {getThumbnails(imgs)}
 
-                <div className="column">
-                    <img className="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature" />
-                </div>
-
-                <div className="column">
-                    <img className="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow" />
-                </div>
-
-                <div className="column">
-                    <img className="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains" />
-                </div>
-
-                <div className="column">
-                    <img className="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights" />
-                </div>
             </div>
         </div>
         <style jsx>{`

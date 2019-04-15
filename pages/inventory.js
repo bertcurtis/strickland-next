@@ -1,7 +1,9 @@
 import Layout from '../components/CommonLayout.js';
 import fetch from 'isomorphic-unfetch';
 import { withRouter } from 'next/router';
+import Link from 'next/link';
 import React, { Component } from 'react';
+//import Lightbox from '../components/Lightbox.js';
 
 
 const Inventory = class extends Component {
@@ -9,7 +11,9 @@ const Inventory = class extends Component {
     tempQuery: this.props.tempQuery,
     query: this.props.query,
     vehicles: this.props.vehicles,
-    filteredVehicleCount: 0
+    filteredVehicleCount: 0,
+    isOpen: false,
+    vehicleIndex: 0
   };
 
   filteredVehicles = [];
@@ -61,9 +65,12 @@ const Inventory = class extends Component {
           <div className="fourth-item">
             <div className="overlay-container">
               <img className="grid-img" src={vehicleData.imgs[3]} />
-              <div className="overlay" onClick={() => this.setState({ isOpen: true, vehicleIndex: vehicleIndex })}>
-                <div>SEE MORE...</div>
-              </div>
+              <Link
+                href={`/vehicle?index=${vehicleIndex}`}>                   
+                <a className="overlay">
+                SEE MORE...
+                </a>
+              </Link>
             </div>
           </div>
           <div className="fifth-item">
@@ -443,8 +450,8 @@ Inventory.getInitialProps = async ({ req }) => {
 
   return {
     vehicles: data,
-    query: 0,
-    tempQuery: 0
+    query: '',
+    tempQuery: ''
   }
 }
 
