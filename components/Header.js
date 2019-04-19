@@ -1,5 +1,5 @@
 import Link from './Link'
-import img from '../img/strickland-home.jpg'
+import img from '../media/strickland-home.jpg'
 
 
 function navProps() {

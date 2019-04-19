@@ -54,7 +54,12 @@ const Inventory = class extends Component {
             <div className="call-number"><b>801.885.1611</b></div>
           </div>
           <div className="main-item">
-            <img className="grid-img" src={vehicleData.imgs[0]} />
+            <Link
+                href={`/vehicle?index=${vehicleIndex}`}>
+                <a>
+                  <img className="grid-img" src={vehicleData.imgs[0]} />
+                </a>
+            </Link>
           </div>
           <div className="second-item">
             <img className="grid-img" src={vehicleData.imgs[1]} />

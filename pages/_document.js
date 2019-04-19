@@ -1,5 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import img from '../img/favicon_tab.ico'
+import img from '../media/favicon_tab.ico'
 
 export default class MyDocument extends Document {
   static async getInitialProps (ctx) {

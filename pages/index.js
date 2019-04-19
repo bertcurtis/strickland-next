@@ -1,43 +1,105 @@
 import Layout from '../components/CommonLayout.js'
-import img from '../img/logo.webp'
+import ReactPlayer from 'react-player'
+
 
 /*
 <div class='imgbox'>
       <img class='center-fit' src={img}/>
-    </div>*/
+      src=""/>
+    </div>
+
+
+
+              playing 
+          loop 
+          config={{
+            youtube: {
+              playerVars: { modestbranding: 1 }
+            }
+          }}
+          width="100vw"
+    
+
+      
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"*/
 export default () => (
   <Layout title='Strickland Auto'>
-    <h1>Strickland Auto</h1>
+
+
+    <div className='video-wrapper'>
+      <div className="click-intercept">
+        <div className="video-overlay-container">
+          <div>
+            <h1>STRICKLAND AUTO</h1>
+            <p>WHERE VALUE MEETS QUALITY</p>
+          </div>
+        </div>
+      </div>
+      <div className="video">
+        <iframe 
+        frameBorder='0'
+        allowFullScreen
+        width='100%'
+        height='100%'
+        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+        src='https://www.youtube.com/embed/nvz8v2f99H8?autoplay=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1&playlist=nvz8v2f99H8'
+        ></iframe>
+      </div>
+    </div>
+
     <style jsx>{`
+    * {padding:0;margin:0;box-sizing:border-box;}
       .center-fit {
         max-width: 100%;
         max-height: 100vh;
         margin: auto;
       }
-      .imgbox {
+      .video-wrapper {
         display: grid;
         height: 100%;
+        grid-template-columns: auto;
+        margin-top: -10px;
       }
-      h1, a {
-        font-family: "Arial";
+      .video {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        z-index: 1;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 */
+        height: 0;
+      }     
+      .video iframe {
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      }
+      .click-intercept {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        z-index: 2;
+      }
+      .video-overlay-container {
+        position: absolute;
+        top: 1;
+        margin-top: 28vh;
+        width: 100%;
+        height: 25%;
+        padding: 16px;
+        text-align: center;
+        font-size: 3vw;
+        background-color: rgba(255,255,255,0.6);
       }
 
-      ul {
-        padding: 0;
-      }
-
-      li {
-        list-style: none;
-        margin: 5px 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: blue;
-      }
-
-      a:hover {
-        opacity: 0.6;
+      @media only screen and (max-width: 700px){
+        .video-wrapper {
+          margin-top: -50px;
+        }
       }
     `}</style>
   </Layout>
