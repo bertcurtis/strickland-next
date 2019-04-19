@@ -20,6 +20,8 @@ import ReactPlayer from 'react-player'
           width="100vw"
     
 
+          https://www.youtube.com/embed/FR_g8mQ6m68?autoplay=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1&enablejsapi=1&origin=https%3A%2F%2Fwww.myautosource.com&widgetid=1
+
       
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"*/
 export default () => (
@@ -42,7 +44,7 @@ export default () => (
         width='100%'
         height='100%'
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        src='https://www.youtube.com/embed/nvz8v2f99H8?autoplay=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1&playlist=nvz8v2f99H8'
+        src='https://www.youtube.com/embed/nvz8v2f99H8?autoplay=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1&playlist=nvz8v2f99H8&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1&enablejsapi=1&origin=https%3A%2F%2Fstrickland-web.herokuapp.com/'
         ></iframe>
       </div>
     </div>
