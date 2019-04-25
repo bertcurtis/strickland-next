@@ -1,6 +1,9 @@
 import Layout from '../components/CommonLayout.js';
 import React, { Component } from 'react';
-import { withRouter } from 'next/router';
+import Router, { withRouter } from 'next/router';
+import homie from '../media/home.gif';
+import review from '../media/review.png';
+import callinfo from '../media/callinfo-min.jpg';
 
 class Home extends Component {
   render() {
@@ -12,20 +15,53 @@ class Home extends Component {
               <div>
                 <h1>STRICKLAND AUTO</h1>
                 <p>WHERE VALUE MEETS QUALITY</p>
+                <button onClick={() => Router.push('/inventory')}>
+                  VIEW INVENTORY</button>
               </div>
             </div>
           </div>
           <div className="video">
-            <iframe
-              frameBorder='0'
-              allowFullScreen
-              width='100%'
-              height='100%'
-              allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-              src='https://www.youtube.com/embed/nvz8v2f99H8?autoplay=1&loop=1&rel=0&controls=0&showinfo=0&modestbranding=1&playlist=nvz8v2f99H8&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1&enablejsapi=1&origin=https%3A%2F%2Fstrickland-web.herokuapp.com/'
-            ></iframe>
+            <img src={homie} />
           </div>
         </div>
+        <div className="sub-video-content">
+        <b>SAME ADVENTURE.</b>
+        <p><b>LESS CASH.</b></p>
+        </div>
+        <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles. We take special care to ensure that each vehicle is in 
+        pristine condition, not to mention make it look dope AF.</p>
+
+        <div className="map-section">
+          <iframe
+            className="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4195.369502782758!2d-111.89997651897639!3d40.68696102160096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528be42346c907%3A0xa848298ed2013672!2sStrickland+Auto!5e0!3m2!1sen!2sus!4v1555624627847!5m2!1sen!2sus">
+          </iframe>
+          <div className="call-info-container">
+          <img src={callinfo} />
+          <div className="call-info-overlay"></div>
+          <div className="call-info">          
+            <a href="tel:+1-801-885-1611">
+              Call or text to test drive today!
+                <p><b>801.885.1611</b></p>
+            </a>
+          </div>
+          </div>
+        </div>
+        
+        <div className="divider"></div>
+        <div className="reviews-header">
+          WE PUT OUR CUSTOMERS FIRST - AND IT SHOWS!
+          <br></br>
+        </div>
+        <div>
+          <img className="reviews" src={review} />
+        </div>
+        <div className="view-more">
+          <p><a href="https://www.facebook.com/pg/StrickAuto/reviews/?ref=page_internal">VIEW MORE REVIEWS</a></p>
+        </div>
+
+
+
 
         <style jsx>{`
     * {padding:0;margin:0;box-sizing:border-box;}
@@ -50,7 +86,7 @@ class Home extends Component {
         padding-bottom: 56.25%; /* 16:9 */
         height: 0;
       }     
-      .video iframe {
+      .video img {
       	position: absolute;
       	top: 0;
       	left: 0;
@@ -67,13 +103,148 @@ class Home extends Component {
       .video-overlay-container {
         position: absolute;
         top: 1;
-        margin-top: 28vh;
+        margin-top: 10vh;
         width: 100%;
-        height: 25%;
+        height: auto;
         padding: 16px;
         text-align: center;
         font-size: 3vw;
         background-color: rgba(255,255,255,0.6);
+      }
+      .video-overlay-container button {
+        position: relative;
+        background-color: #0000FF;
+        border: none;
+        color: white;
+        padding: 14px 30px;
+        text-align: center;
+        font: 12px arvo;
+        display: inline-block;
+        opacity: 0.8;
+      }
+      .video-overlay-container button:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+
+      .sub-video-content {
+        display: block;
+        width: 100%;
+        height: auto;
+        text-align: left;
+        padding: 10px;
+        font-size: 5vw;
+        background: rgb(220, 220, 220);
+      }
+      .sub-video-content-info {
+        display: block;
+        width: 100%;
+        height: auto;
+        text-align: right;
+        padding: 50px 20px 50px 20vw;
+        font-size: 3vw;
+        background: rgb(201, 201, 201);
+      }
+
+      .divider {
+        margin-top: 35px;
+        display: block;
+        height: 1px;
+        margin-left: 10%;
+        margin-right: 10%;
+        background-color: #202020;
+        opacity: 0.9;
+        display: none;
+      }
+
+      .map-section {
+        display: grid;
+        grid-template-columns: 60% 40%
+      }
+      .map {
+        display: block;
+        width: 100%; 
+        height: 100%;
+        allowfullscreen: true;
+      }
+      .call-info-container {
+        position: relative; 
+        max-width: 100%;
+        margin: 0 auto; /* Center it */
+      }
+      .call-info-container img {
+        width: 100%;
+        height: auto;
+      }
+      .call-info-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(200, 0, 0, 0.5);
+        width: 100%;
+        height: 100%;
+      }
+      .call-info {
+        position: absolute;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 15px;
+        border-style: solid;
+        border-width: 2px;
+        border-color: white;
+        border-radius: 3px;
+        font-size: 20px;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+      .call-info a {
+        text-decoration: none;
+        color: white;
+        opacity: 0.9;
+      }
+      .call-info:hover, call-info a:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+
+
+      .reviews {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        padding: 2vh 2vw;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #D3D3D3;
+        border-radius: 3px;
+      }
+
+      .reviews-header {
+        display: block;
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 3vw;
+        padding: 5vh 5vw;
+        background-color: #333;
+        color: white;
+      }
+
+      .view-more {
+        margin-top: 20px;
+        text-align: center;
+        padding: 15px;
+        font-size: 2vw;
+        background: rgba(200, 0, 0, 0.7);
+      }
+
+      @media screen and (max-width: 600px) {
+        .map-section {
+          display: block;
+        }
       }
 
       @media only screen and (max-width: 700px){

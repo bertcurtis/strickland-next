@@ -39,7 +39,6 @@ const Header = () => (
             text-align: center;
             padding: 14px 16px;
             font-family: "Arvo";
-            font-size: 100%;
             text-transform: uppercase;
         }
         .home-img {
@@ -47,10 +46,10 @@ const Header = () => (
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 21px 23px;
+            padding: 3.2vh 3.2vw;
             display: grid;
-            height: 100%;
-            width: 115%;
+            height: auto;
+            width: 100%;
         }
         ul.topnav {
             position: fixed;
@@ -62,26 +61,30 @@ const Header = () => (
             padding: 0;
             overflow: hidden;
             background-color: #333;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         ul.topnav li {
             float: right;
-        }       
+            font-size: 1.5vw;
+        }    
         ul.topnav li a:hover:not(.active) {
             background-color: #111;
         }
         ul.topnav li.left {
             float: left;
         }
+        @media screen and (max-width: 900px) {
+            ul.topnav li {
+                font-size: 2.2vw;
+        }
         @media screen and (max-width: 600px) {
             ul.topnav li.left, ul.topnav li {
                 float: none;
+                font-size: 2.5vw;
             }
             ul.topnav {
                 position: relative;
             }
-            .home-img {
-                margin-left: -13%;
-            }   
         }`}
         </style>
     </div>

@@ -348,9 +348,11 @@ const Inventory = class extends Component {
         .top-content {
           display: flex;
           flex-direction: column;
+          background-color: #E0E0E0;
           padding: 5px;
           align-content: center;
           align-items: center;
+          margin-bottom: 15px;
         }
         .filtered-label {
           font-size: 16px;
