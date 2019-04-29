@@ -1,7 +1,6 @@
 import Layout from '../components/CommonLayout.js';
 import React, { Component } from 'react';
 import Router, { withRouter } from 'next/router';
-import homie from '../media/home.gif';
 import review from '../media/review.png';
 import callinfo from '../media/callinfo-min.jpg';
 
@@ -18,10 +17,17 @@ class Home extends Component {
                 <button onClick={() => Router.push('/inventory')}>
                   VIEW INVENTORY</button>
               </div>
-            </div>
-          </div>
+              </div>
+              </div>
           <div className="video">
-            <img src={homie} />
+            <iframe
+              frameBorder='0'
+              allowFullScreen
+              width='100%'
+              height='100%'
+              allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+              src='https://www.youtube.com/embed/mStyEmelA8s?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=mStyEmelA8s&amp;mute=1' //'https://www.youtube.com/embed/mStyEmelA8s?rel=0&autoplay=1&loop=1&controls=0&showinfo=0&modestbranding=0&mute=1'
+            ></iframe>
           </div>
         </div>
         <div className="sub-video-content">
@@ -86,7 +92,7 @@ class Home extends Component {
         padding-bottom: 56.25%; /* 16:9 */
         height: 0;
       }     
-      .video img {
+      .video iframe {
       	position: absolute;
       	top: 0;
       	left: 0;
