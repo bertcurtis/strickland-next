@@ -355,10 +355,10 @@ const Vehicle = class extends Component {
         .back-link {
           display: block;
           padding: 10px;
-          margin-top: 1vw;
+          margin-top: 2vw;
           text-decoration: none;
           text-align: left;
-          font-size: 100%;
+          font-size: 2.1vw;
           text-transform: uppercase;
         }
         .header {

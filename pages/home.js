@@ -1,8 +1,12 @@
 import Layout from '../components/CommonLayout.js';
 import React, { Component } from 'react';
 import Router, { withRouter } from 'next/router';
-import review from '../media/review.png';
+import review1 from '../media/review1.png';
+import review2 from '../media/review2.png';
+import review3 from '../media/review3.png';
 import callinfo from '../media/callinfo-min.jpg';
+
+//"https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81"
 
 class Home extends Component {
   render() {
@@ -19,6 +23,9 @@ class Home extends Component {
               </div>
               </div>
               </div>
+          <div className="video-replacement">
+            <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81" />
+          </div>
           <div className="video">
             <iframe
               frameBorder='0'
@@ -59,8 +66,10 @@ class Home extends Component {
           WE PUT OUR CUSTOMERS FIRST - AND IT SHOWS!
           <br></br>
         </div>
-        <div>
-          <img className="reviews" src={review} />
+        <div className="review-wrapper">
+          <img className="reviews" src={review1} />
+          <img className="reviews" src={review3} />
+          <img className="reviews" src={review2} />
         </div>
         <div className="view-more">
           <p><a href="https://www.facebook.com/pg/StrickAuto/reviews/?ref=page_internal">VIEW MORE REVIEWS</a></p>
@@ -75,6 +84,18 @@ class Home extends Component {
         max-width: 100%;
         max-height: 100vh;
         margin: auto;
+      }
+      .video-replacement {
+        display: none;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .video-replacement img {
+        background-size: contain;
+        width: 100%;
+        height: auto;
       }
       .video-wrapper {
         display: grid;
@@ -217,18 +238,21 @@ class Home extends Component {
       }
 
 
+      .review-wrapper {
+        display: grid;
+        grid-template-columns: 32% 32% 32%;
+        grid-gap: 15px;
+      }
       .reviews {
         display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        padding: 2vh 2vw;
+        width: 100%;
+        margin-top: 8px;
+        padding: 5px;
         border-style: solid;
         border-width: 1px;
         border-color: #D3D3D3;
         border-radius: 3px;
       }
-
       .reviews-header {
         display: block;
         margin-bottom: 10px;
@@ -244,11 +268,11 @@ class Home extends Component {
         text-align: center;
         padding: 15px;
         font-size: 2vw;
-        background: rgba(200, 0, 0, 0.7);
+        background: rgb(201, 201, 201);
       }
 
-      @media screen and (max-width: 600px) {
-        .map-section {
+      @media only screen and (max-width: 1000px){
+        .review-wrapper {
           display: block;
         }
       }
@@ -258,6 +282,20 @@ class Home extends Component {
           margin-top: -50px;
         }
       }
+
+      @media screen and (max-width: 600px) {
+        .map-section {
+          display: block;
+        }
+        .video-replacement {
+          display: block;
+        }
+        .video {
+          display: none;
+        }
+
+      }
+
     `}</style>
       </Layout>
     );

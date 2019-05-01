@@ -66,6 +66,7 @@ const Header = () => (
         ul.topnav li {
             float: right;
             font-size: 1.5vw;
+            cursor: pointer;
         }    
         ul.topnav li a:hover:not(.active) {
             background-color: #111;
