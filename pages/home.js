@@ -5,6 +5,7 @@ import review1 from '../media/review1.png';
 import review2 from '../media/review2.png';
 import review3 from '../media/review3.png';
 import callinfo from '../media/callinfo-min.jpg';
+import social from '../media/about5.jpg';
 
 //"https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81"
 
@@ -21,8 +22,8 @@ class Home extends Component {
                 <button onClick={() => Router.push('/inventory')}>
                   VIEW INVENTORY</button>
               </div>
-              </div>
-              </div>
+            </div>
+          </div>
           <div className="video-replacement">
             <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81" />
           </div>
@@ -38,11 +39,10 @@ class Home extends Component {
           </div>
         </div>
         <div className="sub-video-content">
-        <b>SAME ADVENTURE.</b>
-        <p><b>LESS CASH.</b></p>
+          <b>SAME ADVENTURE.</b>
+          <p><b>LESS CASH.</b></p>
         </div>
-        <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles. We take special care to ensure that each vehicle is in 
-        pristine condition, not to mention make it look dope AF.</p>
+        <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles, especially Tacomas and 4Runners. In addition to putting special care into each vehicle's condition and quality, each vehicle comes with upgrades tailored to its look and build, with no extra cost to you.</p>
 
         <div className="map-section">
           <iframe
@@ -50,18 +50,16 @@ class Home extends Component {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4195.369502782758!2d-111.89997651897639!3d40.68696102160096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87528be42346c907%3A0xa848298ed2013672!2sStrickland+Auto!5e0!3m2!1sen!2sus!4v1555624627847!5m2!1sen!2sus">
           </iframe>
           <div className="call-info-container">
-          <img src={callinfo} />
-          <div className="call-info-overlay"></div>
-          <div className="call-info">          
-            <a href="tel:+1-801-885-1611">
-              Call or text to test drive today!
+            <img src={callinfo} />
+            <div className="call-info-overlay"></div>
+            <div className="call-info">
+              <a href="tel:+1-801-885-1611">
+                Call or text to test drive today!
                 <p><b>801.885.1611</b></p>
-            </a>
-          </div>
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div className="divider"></div>
         <div className="reviews-header">
           WE PUT OUR CUSTOMERS FIRST - AND IT SHOWS!
           <br></br>
@@ -73,6 +71,17 @@ class Home extends Component {
         </div>
         <div className="view-more">
           <p><a href="https://www.facebook.com/pg/StrickAuto/reviews/?ref=page_internal">VIEW MORE REVIEWS</a></p>
+        </div>
+        <div className="divider"></div>
+        
+        <div className="social">
+        <div className="social-header"><p>Check us out on social media!</p></div>
+          <div className="view-facebook">
+            <p><a href="https://www.facebook.com/StrickAuto/" target="_blank">FACEBOOK</a></p>
+          </div>
+          <div className="view-instagram">
+            <p><a href="https://www.instagram.com/strickland_auto/" target="_blank">INSTAGRAM</a></p>
+          </div>
         </div>
 
 
@@ -181,7 +190,6 @@ class Home extends Component {
         margin-right: 10%;
         background-color: #202020;
         opacity: 0.9;
-        display: none;
       }
 
       .map-section {
@@ -269,6 +277,64 @@ class Home extends Component {
         padding: 15px;
         font-size: 2vw;
         background: rgb(201, 201, 201);
+      }
+
+      .social-header {
+        display: block;
+        text-align: left;
+        padding: 30px;
+        font-size: 1.6vw;
+        text-transform: uppercase;
+        color: white;
+      }
+
+      .social {
+        margin-top: 20px;
+        display: flex;
+        padding: 30px;
+        background-image: url(${social});
+        background-size: cover;
+        background-position: center;
+
+      }
+
+      .view-facebook {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        padding: 25px;
+        font-size: 1.5vw;
+        background: rgba(59,89,152, 0.7);
+        width: 30vw;
+        margin: auto;
+        cursor: pointer;
+      }
+      .view-facebook:hover {
+        background: rgba(59,89,152, 0.9);
+      }
+      .view-facebook a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .view-instagram {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        padding: 25px;
+        font-size: 1.5vw;
+        width: 30vw;
+        margin: auto;
+        background: rgba(201, 201, 201, 0.7);
+        cursor: pointer;
+      }
+
+      .view-instagram a {
+        text-decoration: none;
+        color: white;
+      }
+      .view-instagram:hover { 
+        background: rgba(79,109,172, 0.9);
       }
 
       @media only screen and (max-width: 1000px){

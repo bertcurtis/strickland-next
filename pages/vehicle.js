@@ -11,11 +11,11 @@ const Vehicle = class extends Component {
   };
 
   handleNext = () => {
-    this.setState({ imgIndex: this.state.imgIndex < 1 ? this.props.vehicles[this.props.router.query.index].imgs.length - 1 : this.state.imgIndex - 1 });
+    this.setState({ imgIndex: this.state.imgIndex > this.props.vehicles[this.props.router.query.index].imgs.length - 2 ? 0 : this.state.imgIndex + 1 });
   }
 
   handlePrevious = () => {
-    this.setState({ imgIndex: this.state.imgIndex > this.props.vehicles[this.props.router.query.index].imgs.length - 1 ? 0 : this.state.imgIndex + 1 });
+    this.setState({ imgIndex: this.state.imgIndex < 1 ? this.props.vehicles[this.props.router.query.index].imgs.length - 1 : this.state.imgIndex - 1 });
   }
 
   handleModalOpen = () => {
