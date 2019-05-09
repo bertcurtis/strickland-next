@@ -46,9 +46,12 @@ const Inventory = class extends Component {
     <div>
       <div className="listing-wrapper">
         <div className="grid-wrapper">
-          <div className="grid-header">
+          <Link
+            href={`/vehicle?index=${vehicleIndex}`}>
+          <a className="grid-header">
             <h1>{`${vehicleData.year} ${vehicleData.make} ${vehicleData.model} ${vehicleData.trim != 'Not Specified' ? vehicleData.trim : ''}`}</h1>
-          </div>
+          </a>
+          </Link>
           <div className="grid-header-price">
             <p>PRICE: <b>{`${vehicleData.price}`}</b></p>
           </div>
@@ -166,6 +169,9 @@ const Inventory = class extends Component {
         .grid-header {
           font-size: 1.5vw;
           text-transform: uppercase;
+          text-decoration: none;
+          color: black;
+          cursor: pointer;
           grid-column-start: 1;
           grid-column-end: 3;
           grid-row-start: 1;
@@ -349,8 +355,10 @@ const Inventory = class extends Component {
 
     return <Layout title='Inventory'>
       <div className='top-content'>
-        <div className='text-content'><b>We are committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Tacomas and 4Runners!
-        </b>
+        <div className='text-content'>
+        <div><b>unmatched quality vehicles.</b></div>
+        <div><b>smaller price tags.</b></div>
+        <div><b>no hidden fees.</b></div>
         </div>
       </div>
       <div className='search-container'>

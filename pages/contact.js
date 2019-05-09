@@ -52,6 +52,7 @@ const Contact = () => (
         display: grid;
         grid-template-columns: 40% 60%;
         grid-template-rows: 45vh;
+        grid-gap: 10px;
         z-index: 0;
         margin-bottom: 10px;
       }
@@ -61,10 +62,10 @@ const Contact = () => (
         grid-column-end: 2;
         grid-row-start: 1;
         grid-row-end: 2;
-        width: auto;
-        height: 99%;
-        opacity: 0.5;
-
+        object-fit: stretch;
+        width: 100%;
+        height: 98.5%;
+        opacity: 0.45;
       }
       .info-container {
         grid-column-start: 2;
@@ -224,6 +225,15 @@ const Contact = () => (
         .info-container {
           display: block;
         } 
+        .info-section-img {
+          display: none;
+        }
+        .truck {
+          display: none;
+        }
+        .address-container {
+          display: none;
+        }
 
         .contact-info {
           font-size: 2.5vw;

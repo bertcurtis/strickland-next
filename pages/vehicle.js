@@ -338,12 +338,13 @@ const Vehicle = class extends Component {
     const handleModalClose = this.handleModalClose.bind(this);
 
     return <Layout title='Vehicle'>
-      <Link
+    <Link
         href={`/inventory`}>
         <a className="back-link">
           {`< BACK TO LISTINGS`}
         </a>
       </Link>
+
       <div className="header">{this.getVehicleHeader(this.props.vehicles[this.props.router.query.index])}</div>
       <div>
         {this.renderVehicleImages(this.props.vehicles[this.props.router.query.index], imgIndex, handleNext, handlePrevious, handleModalOpen)}
@@ -354,12 +355,14 @@ const Vehicle = class extends Component {
       <style jsx>{`{
         .back-link {
           display: block;
-          padding: 10px;
-          margin-top: 2vw;
-          text-decoration: none;
+          padding: 20px;
+          margin-top: 4vh;
           text-align: left;
           font-size: 2.1vw;
-          text-transform: uppercase;
+          text-decoration: none;
+          color: white;
+          background-color: grey;
+          cursor: pointer;
         }
         .header {
           font-size: 2.3vw;
