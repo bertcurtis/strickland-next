@@ -1,11 +1,12 @@
 import Layout from '../components/CommonLayout.js';
+import Social from '../components/Social.js';
 import React, { Component } from 'react';
 import Router, { withRouter } from 'next/router';
 import review1 from '../media/review1.png';
 import review2 from '../media/review2.png';
 import review3 from '../media/review3.png';
 import callinfo from '../media/callinfo-min.jpg';
-import social from '../media/about5.jpg';
+import Sticky from 'react-stickynode';
 
 //"https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81"
 
@@ -15,6 +16,7 @@ class Home extends Component {
       <Layout title='Strickland Auto'>
         <div className='video-wrapper'>
           <div className="click-intercept">
+          <Sticky enabled={true} top={0} bottomBoundary={390}>
             <div className="video-overlay-container">
               <div>
                 <h1>STRICKLAND AUTO</h1>
@@ -23,6 +25,7 @@ class Home extends Component {
                   VIEW INVENTORY</button>
               </div>
             </div>
+          </Sticky>
           </div>
           <div className="video-replacement">
             <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/45747809_1120003664819299_1371238935690215424_n.jpg?_nc_cat=106&_nc_ht=scontent-sjc3-1.xx&oh=3f3186c4e76bce8615ddf4c08434730a&oe=5D376C81" />
@@ -37,10 +40,10 @@ class Home extends Component {
               src='https://www.youtube.com/embed/mStyEmelA8s?rel=0&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;loop=1&amp;playlist=mStyEmelA8s&amp;mute=1' //'https://www.youtube.com/embed/mStyEmelA8s?rel=0&autoplay=1&loop=1&controls=0&showinfo=0&modestbranding=0&mute=1'
             ></iframe>
           </div>
-        </div>
-        <div className="sub-video-content">
-          <b>SAME ADVENTURE.</b>
-          <p><b>LESS CASH.</b></p>
+          <div className="sub-video-content">
+            <b>SAME ADVENTURE.</b>
+            <p><b>LESS CASH.</b></p>
+          </div>
         </div>
         <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles, especially Tacomas and 4Runners. In addition to putting special care into each vehicle's condition and quality, each vehicle comes with upgrades tailored to its look and build, with no extra cost to you.</p>
 
@@ -62,38 +65,16 @@ class Home extends Component {
         </div>
         <div className="reviews-header">
           WE PUT OUR CUSTOMERS FIRST - AND IT SHOWS!
-          <br></br>
+          <p className="view-more"><a href="https://www.facebook.com/pg/StrickAuto/reviews/?ref=page_internal">VIEW MORE REVIEWS</a></p>
         </div>
         <div className="review-wrapper">
           <img className="reviews" src={review1} />
           <img className="reviews" src={review3} />
           <img className="reviews" src={review2} />
         </div>
-        <div className="view-more">
-          <p><a href="https://www.facebook.com/pg/StrickAuto/reviews/?ref=page_internal">VIEW MORE REVIEWS</a></p>
-        </div>
-        <div className="divider"></div>
-        
-        <div className="social">
-        <div className="social-header"><p>Check us out on social media!</p></div>
-          <div className="view-facebook">
-            <p><a href="https://www.facebook.com/StrickAuto/" target="_blank">FACEBOOK</a></p>
-          </div>
-          <div className="view-instagram">
-            <p><a href="https://www.instagram.com/strickland_auto/" target="_blank">INSTAGRAM</a></p>
-          </div>
-        </div>
-
-
-
-
+        <Social />
         <style jsx>{`
     * {padding:0;margin:0;box-sizing:border-box;}
-      .center-fit {
-        max-width: 100%;
-        max-height: 100vh;
-        margin: auto;
-      }
       .video-replacement {
         display: none;
         grid-column-start: 1;
@@ -110,7 +91,8 @@ class Home extends Component {
         display: grid;
         height: 100%;
         grid-template-columns: auto;
-        margin-top: -10px;
+        grid-template-rows: auto auto;
+        margin-top: 10px;
       }
       .video {
         grid-column-start: 1;
@@ -137,9 +119,9 @@ class Home extends Component {
         z-index: 2;
       }
       .video-overlay-container {
-        position: absolute;
+        position: fixed;
         top: 1;
-        margin-top: 10vh;
+        margin-top: 15vh;
         width: 100%;
         height: auto;
         padding: 16px;
@@ -164,6 +146,12 @@ class Home extends Component {
       }
 
       .sub-video-content {
+        z-index: 3;
+        margin-top: 80vh;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
         display: block;
         width: 100%;
         height: auto;
@@ -243,6 +231,8 @@ class Home extends Component {
       .call-info:hover, call-info a:hover {
         cursor: pointer;
         opacity: 1;
+        background: rgba(200, 0, 0, 0.65);
+        border-color: rgba(200, 0, 0, 0.65);
       }
 
 
@@ -275,71 +265,36 @@ class Home extends Component {
         margin-top: 20px;
         text-align: center;
         padding: 15px;
-        font-size: 2vw;
-        background: rgb(201, 201, 201);
-      }
-
-      .social-header {
-        display: block;
-        text-align: left;
-        padding: 30px;
-        font-size: 1.6vw;
-        text-transform: uppercase;
-        color: white;
-      }
-
-      .social {
-        margin-top: 20px;
-        display: flex;
-        padding: 30px;
-        background-image: url(${social});
-        background-size: cover;
-        background-position: center;
-
-      }
-
-      .view-facebook {
-        display: block;
-        margin-top: 10px;
-        text-align: center;
-        padding: 25px;
         font-size: 1.5vw;
-        background: rgba(59,89,152, 0.7);
-        width: 30vw;
-        margin: auto;
+        color: white;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #D3D3D3;
+        border-radius: 3px;
         cursor: pointer;
       }
-      .view-facebook:hover {
-        background: rgba(59,89,152, 0.9);
+      .view-more:hover {
+        opacity: 1;
+        background-color: grey;
+        border-color: grey;
       }
-      .view-facebook a {
+      .view-more a {
         text-decoration: none;
         color: white;
+        opacity: 0.8;
       }
-
-      .view-instagram {
-        display: block;
-        margin-top: 10px;
-        text-align: center;
-        padding: 25px;
-        font-size: 1.5vw;
-        width: 30vw;
-        margin: auto;
-        background: rgba(201, 201, 201, 0.7);
-        cursor: pointer;
-      }
-
-      .view-instagram a {
-        text-decoration: none;
-        color: white;
-      }
-      .view-instagram:hover { 
-        background: rgba(79,109,172, 0.9);
+      @media only screen and (max-width: 1300px){
+        .sub-video-content {
+          margin-top: 60vh;
+        }
       }
 
       @media only screen and (max-width: 1000px){
         .review-wrapper {
           display: block;
+        }
+        .sub-video-content {
+          margin-top: 45vh;
         }
       }
 
@@ -347,9 +302,16 @@ class Home extends Component {
         .video-wrapper {
           margin-top: -50px;
         }
+        .sub-video-content {
+          margin-top: 30vh;
+        }
       }
 
       @media screen and (max-width: 600px) {
+        .video-overlay-container {
+          position: relative;
+          margin-top: 10px;
+        }
         .map-section {
           display: block;
         }

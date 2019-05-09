@@ -4,7 +4,7 @@ import about2 from '../media/about2.jpg';
 import about3 from '../media/about3.jpg';
 import about4 from '../media/about4.jpg';
 import about5 from '../media/about5.jpg';
-import social from '../media/about5.jpg';
+import Social from '../components/Social.js';
 
 const About = () => (
   <Layout title='About Strickland'>
@@ -69,15 +69,7 @@ const About = () => (
       <p className="right-align"><b>Erwin</b>: YA! We find ourselves saying things that normal salesmen don’t say. We’ll point things out that other people would not. With that, we say, THIS is what you’re getting. We’re transparent. What you see is what you get. That’s what people should expect.
  </p>
     </div>
-    <div className="social">
-        <div className="social-header"><p>Check us out on social media!</p></div>
-          <div className="view-facebook">
-            <p><a href="https://www.facebook.com/StrickAuto/" target="_blank">FACEBOOK</a></p>
-          </div>
-          <div className="view-instagram">
-            <p><a href="https://www.instagram.com/strickland_auto/" target="_blank">INSTAGRAM</a></p>
-          </div>
-        </div>
+    <Social />
 
     <style jsx>{`
       .header {
@@ -151,63 +143,6 @@ const About = () => (
       .right-align {
         text-align: right;
         margin-left: 30vw;
-      }
-      .social-header {
-        display: block;
-        text-align: left;
-        padding: 30px;
-        font-size: 1.6vw;
-        text-transform: uppercase;
-        color: white;
-      }
-
-      .social {
-        margin-top: 20px;
-        display: flex;
-        padding: 30px;
-        background-image: url(${social});
-        background-size: cover;
-        background-position: center;
-
-      }
-
-      .view-facebook {
-        display: block;
-        margin-top: 10px;
-        text-align: center;
-        padding: 25px;
-        font-size: 1.5vw;
-        background: rgba(59,89,152, 0.7);
-        width: 30vw;
-        margin: auto;
-        cursor: pointer;
-      }
-      .view-facebook:hover {
-        background: rgba(59,89,152, 0.9);
-      }
-      .view-facebook a {
-        text-decoration: none;
-        color: white;
-      }
-
-      .view-instagram {
-        display: block;
-        margin-top: 10px;
-        text-align: center;
-        padding: 25px;
-        font-size: 1.5vw;
-        width: 30vw;
-        margin: auto;
-        background: rgba(201, 201, 201, 0.7);
-        cursor: pointer;
-      }
-
-      .view-instagram a {
-        text-decoration: none;
-        color: white;
-      }
-      .view-instagram:hover { 
-        background: rgba(79,109,172, 0.9);
       }
       @media only screen and (max-width: 700px){ 
         .view-facebook-reviews { 

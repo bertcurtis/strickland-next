@@ -18,7 +18,7 @@ const Header = () => (
                 <div>              
                     <Link
                         key={navProp.text}
-                        activeClassName='active'
+                        activeClassName={navProp.align == 'left' ? null : 'active'}
                         href={navProp.href}>                   
                         <a className={navProp.align == 'left' ? 'home-img' : 'nav-link'}>
                             {navProp.text == 'Home' ?  null : navProp.text}
@@ -37,7 +37,7 @@ const Header = () => (
             display: grid;
             color: white;
             text-align: center;
-            padding: 14px 16px;
+            padding: 17px 19px;
             font-family: "Arvo";
             text-transform: uppercase;
         }
@@ -46,7 +46,7 @@ const Header = () => (
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 3.2vh 3.2vw;
+            padding: 3.1vh 3.1vw;
             display: grid;
             height: auto;
             width: 100%;
@@ -61,11 +61,11 @@ const Header = () => (
             padding: 0;
             overflow: hidden;
             background-color: #333;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
         }
         ul.topnav li {
             float: right;
-            font-size: 1.5vw;
+            font-size: 1.2vw;
             cursor: pointer;
         }    
         ul.topnav li a:hover:not(.active) {

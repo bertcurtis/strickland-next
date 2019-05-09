@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "temp": {
+  "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "scripts": {
+  "temp": {
     "dev": "node server.js",
     "build": "next build",
     "start": "next start -p $PORT",
@@ -24,11 +24,14 @@
     "next": "^8.0.3",
     "next-images": "^1.1.1",
     "nprogress": "^0.2.0",
-    "react": "^16.8.4",
+    "react": "^16.8.6",
     "react-dom": "^16.8.4",
     "react-image-lightbox": "^5.1.0",
     "react-markdown": "^4.0.6",
     "react-player": "^1.11.0",
+    "react-sticky": "^6.0.3",
+    "react-stickynode": "^2.1.1",
+    "sticky": "^0.8.0",
     "styled-jsx": "^3.2.1"
   }
 }

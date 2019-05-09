@@ -349,8 +349,8 @@ const Inventory = class extends Component {
 
     return <Layout title='Inventory'>
       <div className='top-content'>
-        <h1>STRICKLAND AUTO</h1>
-        <div className='text-content'>We are committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Tacomas and 4Runners!
+        <div className='text-content'><b>We are committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Tacomas and 4Runners!
+        </b>
         </div>
       </div>
       <div className='search-container'>
@@ -392,11 +392,12 @@ const Inventory = class extends Component {
           display: none;
         }
         .text-content {
-          font-size: 180%;
-          text-align: right;
+          margin-top: 20px;
+          text-transform: uppercase;
+          font-size: 220%;
+          text-align: left;
           margin-bottom: 15px;
-          margin-left: 21vw;
-          margin-right: 2vw;
+          max-width: 1200px;
         }
         .search-container {
           display: flex;
