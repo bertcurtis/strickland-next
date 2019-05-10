@@ -1,23 +1,30 @@
 import social from '../media/about5.jpg';
+import facebook from '../media/facebooks.png';
+import insta from '../media/insta.png';
 
 const Social = () => (
     <div>
         <div className="social">
-        <div className="social-header"><p>Check us out on social media!</p></div>
+        <div className="content-wrapper">
           <div className="view-facebook">
-            <p><a href="https://www.facebook.com/StrickAuto/" target="_blank">FACEBOOK</a></p>
+            <a href="https://www.facebook.com/StrickAuto/" target="_blank"></a>
           </div>
           <div className="view-instagram">
-            <p><a href="https://www.instagram.com/strickland_auto/" target="_blank">INSTAGRAM</a></p>
+            <a href="https://www.instagram.com/strickland_auto/" target="_blank"></a>
           </div>
+          <div className="social-header"><p>Check us out on social media!</p></div>
+        </div>
         </div>
 
 <style jsx>{`
+        .content-wrapper {
+          display: flex;
+          flex-direction: row;
+        }
         .social-header {
             display: block;
-            text-align: left;
             padding: 30px;
-            font-size: 1.6vw;
+            font-size: 20px;
             text-transform: uppercase;
             color: white;
           }
@@ -27,47 +34,31 @@ const Social = () => (
             padding: 30px;
             background-image: url(${social});
             background-size: cover;
-            background-position: center;
-        
+            background-position: center;       
           }
         
           .view-facebook {
+            background-image: url(${facebook});
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             display: block;
-            margin-top: 10px;
-            text-align: center;
-            padding: 25px;
-            font-size: 1.5vw;
-            background: rgba(59,89,152, 0.8);
-            width: 30vw;
-            margin: auto;
+            height: 80px;
+            width: 80px;
             cursor: pointer;
-          }
-          .view-facebook:hover {
-            background: rgba(59,89,152, 0.9);
-          }
-          .view-facebook a {
-            text-decoration: none;
-            color: white;
+            margin: 25px;
           }
         
           .view-instagram {
+            background-image: url(${insta});
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             display: block;
-            margin-top: 10px;
-            text-align: center;
-            padding: 25px;
-            font-size: 1.5vw;
-            width: 30vw;
-            margin: auto;
-            background: rgba(201, 201, 201, 0.8);
+            height: 80px;
+            width: 80px;
             cursor: pointer;
-          }
-        
-          .view-instagram a {
-            text-decoration: none;
-            color: white;
-          }
-          .view-instagram:hover { 
-            background: rgba(225,225,225, 0.9);
+            margin: 25px;
           }`}
         </style>
     </div>

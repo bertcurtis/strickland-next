@@ -9,7 +9,7 @@ import Social from '../components/Social.js';
 const About = () => (
   <Layout title='About Strickland'>
     <div className="header"><b>ADVENTURE STARTS HERE</b> <p>Committed to providing the highest quality vehicles with smaller price tags. Specializing in branded title Trucks!</p>
-      <p>Don't spend thousand's more than you need to. Call and ask us why this Branded Title Tacoma is such a great way to save money. All our trucks qualify for financing. We offer A full bumper to bumper extended warranty. STRICKLAND AUTO is a family owned and operated dealership with low overhead. We pass this savings onto our customers with the lowest prices. NO HIDDEN FEES AND NO DOC FEES</p>
+      <p>Don't spend thousand's more than you need to. Call and ask us why this Branded Title Tacoma is such a great way to save money. All our trucks qualify for financing. We offer A full bumper to bumper extended warranty. STRICKLAND AUTO is a family owned and operated dealership with low overhead. We pass this savings onto our customers with the lowest prices. NO HIDDEN FEES AND NO DOC FEES.</p>
       <div className="view-google-reviews">
         <p><a href="https://www.google.com/search?ei=zETJXLeZKuS3ggeHpJPQDg&q=strickland+auto+google+reviews&oq=strickland+auto+google+reviews&gs_l=psy-ab.3...2700.3563..3774...0.0..0.248.760.0j3j1......0....1..gws-wiz.......0i71j35i304i39.Nb6wBebZlzI#lrd=0x87528be42346c907:0xa848298ed2013672,1,,," target="_blank">VIEW GOOGLE REVIEWS</a></p>
       </div>
@@ -31,11 +31,11 @@ const About = () => (
 </p>
       <p className="right-align"><b>Jonathon:</b> For me, I was ready for a change. I wanted to be home more with my family.
 </p>
-      <p className="right-align"><b>Erwin</b>: I’d been mining for 30 years, off and on. Underground Uranium mostly. Jon was starting this. I decided I wanted to stay home more. I’d been suit-casing in a hotel for two, three, four months sometimes. It wasn’t miserable, but I was ready to be home more.
+      <p className="right-align"><b>Erwin</b>: I’d been mining for 30 years, off and on. Underground Uranium mostly. Jonathon was starting Strickland Auto. I decided I wanted to stay home more. I’d been suit-casing in a hotel for two, three, four months sometimes. It wasn’t miserable, but I was ready to be home more.
 </p>
       <p className="question"><b>Ian</b>: When you guys were talking about Strickland Auto, what kind of a company you wanted to have, what were the conversations like? What kind of business did you want to start?
 </p>
-      <p className="right-align"><b>Jonathon</b>: To be different. We wanted to do things different. Honestly- we just wanted to treat people how we wanted to be treated. We have people tell everyday, “wow, this is a crazy experience. I never thought I’d be giving a car-dealership a 5-star review."
+      <p className="right-align"><b>Jonathon</b>: To be different. We wanted to do things different. Honestly- we just wanted to treat people how we wanted to be treated. We have people tell us everyday, “wow, this is a crazy experience. I never thought I’d be giving a car-dealership a 5-star review."
 </p>
       <p className="right-align"><b>Erwin</b>: Ya, that’s the first thing that came to my mind is “different.” I’ve been around long enough to know people how they are and sales and all that stuff. That was one of the first things we talked about was we aren’t going to do things the way other companies do things.
 </p>

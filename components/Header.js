@@ -86,6 +86,9 @@ const Header = () => (
             ul.topnav {
                 position: relative;
             }
+            .home-img {
+                margin-left: -3.1vw;
+            }
         }`}
         </style>
     </div>
