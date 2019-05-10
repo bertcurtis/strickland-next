@@ -45,7 +45,7 @@ class Home extends Component {
             <p><b>LESS CASH.</b></p>
           </div>
         </div>
-        <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles, especially Tacomas and 4Runners. In addition to putting special care into each vehicle's condition and quality, each vehicle comes with upgrades tailored to its look and build, with no extra cost to you.</p>
+        <p className="sub-video-content-info">We specialize in high-end rebuilt title vehicles, especially Tacomas and 4Runners. No doc or dealer fees mean you walk away with more cash in your pocket. We take special care to ensure that each vehicle performs and looks its best.</p>
 
         <div className="map-section">
           <iframe

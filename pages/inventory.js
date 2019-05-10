@@ -49,7 +49,7 @@ const Inventory = class extends Component {
           <Link
             href={`/vehicle?index=${vehicleIndex}`}>
           <a className="grid-header">
-            <h1>{`${vehicleData.year} ${vehicleData.make} ${vehicleData.model} ${vehicleData.trim != 'Not Specified' ? vehicleData.trim : ''}`}</h1>
+            <h1>{`${vehicleData.year} ${vehicleData.make} ${vehicleData.model} ${vehicleData.trim.toLowerCase() != 'not specified' ? vehicleData.trim : ''}`}</h1>
           </a>
           </Link>
           <div className="grid-header-price">
@@ -257,7 +257,6 @@ const Inventory = class extends Component {
         @media screen and (max-width: 800px) {
           .item-granular {
             font-size: 2.2vw;
-            width: 195%;
           }
           .call-text, .call-number {
             font-size: 2.2vw;
@@ -356,7 +355,7 @@ const Inventory = class extends Component {
     return <Layout title='Inventory'>
       <div className='top-content'>
         <div className='text-content'>
-        <div><b>unmatched quality vehicles.</b></div>
+        <div><b>vehicle quality unmatched.</b></div>
         <div><b>smaller price tags.</b></div>
         <div><b>no hidden fees.</b></div>
         </div>

@@ -8,7 +8,8 @@ import Social from '../components/Social.js';
 
 const About = () => (
   <Layout title='About Strickland'>
-    <div className="header"><b>STRICKLAND AUTO.</b> <p>Committed to providing the highest quality vehicle's with smaller price tags and no hidden fee's. Specializing in branded title Trucks!</p>
+    <div className="header"><b>ADVENTURE STARTS HERE</b> <p>Committed to providing the highest quality vehicles with smaller price tags. Specializing in branded title Trucks!</p>
+      <p>Don't spend thousand's more than you need to. Call and ask us why this Branded Title Tacoma is such a great way to save money. All our trucks qualify for financing. We offer A full bumper to bumper extended warranty. STRICKLAND AUTO is a family owned and operated dealership with low overhead. We pass this savings onto our customers with the lowest prices. NO HIDDEN FEES AND NO DOC FEES</p>
       <div className="view-google-reviews">
         <p><a href="https://www.google.com/search?ei=zETJXLeZKuS3ggeHpJPQDg&q=strickland+auto+google+reviews&oq=strickland+auto+google+reviews&gs_l=psy-ab.3...2700.3563..3774...0.0..0.248.760.0j3j1......0....1..gws-wiz.......0i71j35i304i39.Nb6wBebZlzI#lrd=0x87528be42346c907:0xa848298ed2013672,1,,," target="_blank">VIEW GOOGLE REVIEWS</a></p>
       </div>
@@ -148,12 +149,16 @@ const About = () => (
         .view-facebook-reviews { 
           width: 60vw;
           font-size: 2.2vw;
-
         }
         .view-google-reviews { 
           width: 60vw;
           font-size: 2.2vw;
-
+        }
+        .right-align {
+          margin-left: 7vw;
+        }
+        .header {
+          margin-top: -6vh;
         }
       }
       `}</style>
