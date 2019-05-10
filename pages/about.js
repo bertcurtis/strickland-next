@@ -77,7 +77,7 @@ const About = () => (
         display: block;
         text-align: left;
         padding: 30px;
-        font-size: 3vw;
+        font-size: 2vw;
         background: rgb(220, 220, 220);
       }
       .images {
