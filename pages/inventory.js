@@ -161,7 +161,7 @@ const Inventory = class extends Component {
         .grid-wrapper {
           display: grid;
           grid-template-columns: 33vw 33vw 22vw;
-          grid-template-rows: 50px 80px 250px 250px 250px;
+          grid-template-rows: auto 60px 250px 250px 250px;
           grid-gap: 20px;
           width: 100%
           max-width: 1500px;
@@ -176,7 +176,6 @@ const Inventory = class extends Component {
           grid-column-end: 3;
           grid-row-start: 1;
           grid-row-end: 2;
-          margin-top: -10px;
         }
         .grid-header-price {
           grid-column-start: 3;
@@ -190,18 +189,21 @@ const Inventory = class extends Component {
           color: green;
         }
         .grid-info-item {
+          margin-top: -40px;
           grid-column-start: 1;
           grid-column-end: 2;
           grid-row-start: 2;
           grid-row-end: 3;
         }
         .grid-info-item2 {
+          margin-top: -40px;
           grid-column-start: 2;
           grid-column-end: 3;
           grid-row-start: 2;
           grid-row-end: 3;
         }
         .grid-info-item3 {
+          margin-top: -40px;
           grid-column-start: 3;
           grid-column-end: 4;
           grid-row-start: 2;
