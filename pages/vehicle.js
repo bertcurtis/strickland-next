@@ -153,15 +153,15 @@ const Vehicle = class extends Component {
           grid-template-rows: 3vh 25vh 3vh;
         }
         .main-inner-image {
-          width: 55vw;
-          height: 55vw;
+          width: 45vw;
+          height: 40vw;
           object-fit: contain;
           display: block;
           transition: .5s ease;
         }
         .side-inner-image {
-          width: 35vw;
-          height: 35vw;
+          width: 20vw;
+          height: 32vw;
           object-fit: contain;
           display: block;
         }
@@ -282,19 +282,19 @@ const Vehicle = class extends Component {
       <style jsx>{`{
                 .description {
                   display: block;
-                  padding: 10px;
+                  padding: 0 50px 0 50px;
                   margin-top: 1vw;
                   text-decoration: none;
                   text-align: left;
-                  font-size: 2vw;
+                  font-size: 1.1vw;
                 }
                 .details {
                   display: block;
-                  padding: 1px;
+                  padding: 1px 25px 0 25px;
                   margin-left: 10px;
                   text-transform: uppercase;
                   text-align: left;
-                  font-size: 1.8vw;
+                  font-size: 1.1vw;
                 }
                 .map {
                   width: 50vw; 
@@ -308,16 +308,16 @@ const Vehicle = class extends Component {
                 .call-info {
                   display: block;
                   padding: 10px;
-                  margin-right: 10vw;
+                  margin-right: 14vw;
                   text-transform: uppercase;
                   text-align: right;
-                  font-size: 1.8vw;
+                  font-size: 1.4vw;
                 }
                 h2 {
                   text-transform: uppercase;
                   padding: 10px;
                   margin-bottom: -10px;
-                  font-size: 2.2vw;
+                  font-size: 2vw;
                 }
               }`}
       </style>
@@ -339,7 +339,7 @@ const Vehicle = class extends Component {
 
     return <Layout title='Vehicle'>
     <Link
-        href={`/inventory`}>
+        href={this.props.router.query.search ? `/inventory?search=${this.props.router.query.search}` : `/inventory`}>
         <a className="back-link">
           {`< BACK TO LISTINGS`}
         </a>
@@ -355,17 +355,17 @@ const Vehicle = class extends Component {
       <style jsx>{`{
         .back-link {
           display: block;
-          padding: 20px;
-          margin-top: 4vh;
+          padding: 14px;
+          margin-top: 6.5vh;
           text-align: left;
-          font-size: 2.1vw;
+          font-size: 1vw;
           text-decoration: none;
           color: white;
           background-color: grey;
           cursor: pointer;
         }
         .header {
-          font-size: 2.3vw;
+          font-size: 1.3vw;
           text-align: center;
           text-transform: uppercase;
         }

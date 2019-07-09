@@ -65,7 +65,7 @@ const Header = () => (
         }
         ul.topnav li {
             float: right;
-            font-size: 1.2vw;
+            font-size: 0.9vw;
             cursor: pointer;
         }    
         ul.topnav li a:hover:not(.active) {

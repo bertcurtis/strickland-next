@@ -1,6 +1,6 @@
 import Layout from '../components/CommonLayout.js';
 import fetch from 'isomorphic-unfetch';
-import { withRouter } from 'next/router';
+import Router, { withRouter } from 'next/router';
 import Link from 'next/link';
 import React, { Component } from 'react';
 //import Lightbox from '../components/Lightbox.js';
@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 const Inventory = class extends Component {
   state = {
     tempQuery: this.props.tempQuery,
-    query: this.props.query,
+    query: this.props.router.query.search || '',
     vehicles: this.props.vehicles,
     filteredVehicleCount: 0,
     isOpen: false,
@@ -18,18 +18,36 @@ const Inventory = class extends Component {
 
   filteredVehicles = [];
 
-  /*
   componentDidMount = () => {
-    this.setState({filteredVehicleLength: this.state.vehicles.length});
-  }*/
+    this.setState({filteredVehicleCount: this.filteredVehicles.length || this.state.vehicles.length});
+  }
+
+  handleClear(event) {
+    this.setState({ query: '' }, 
+    () => {
+      this.filteredVehicles = [];
+      Router.push('/inventory');
+    }
+    );
+    event.preventDefault();
+  }
 
   handleSubmit(event) {
-    this.setState({ filteredVehicleCount: 0 });
-    this.setState({ query: this.state.tempQuery },
+    if (this.state.tempQuery == '') {
+      this.setState({ query: '' }, 
+      () => {
+        this.filteredVehicles = [];
+        Router.push('/inventory');
+      });
+    }
+    else {
+    this.setState({ query: this.state.tempQuery }/*,
       () => {
         this.setState({ filteredVehicleCount: this.filteredVehicles.length });
-      });
+      }*/);
     event.preventDefault();
+    Router.push(`/inventory?search=${this.state.tempQuery}`);
+    }
   }
 
   handleChange(event) {
@@ -47,7 +65,7 @@ const Inventory = class extends Component {
       <div className="listing-wrapper">
         <div className="grid-wrapper">
           <Link
-            href={`/vehicle?index=${vehicleIndex}`}>
+            href={`/vehicle?index=${vehicleData.index}&search=${this.state.query}`}>
           <a className="grid-header">
             <h1>{`${vehicleData.year} ${vehicleData.make} ${vehicleData.model} ${vehicleData.trim.toLowerCase() != 'not specified' ? vehicleData.trim : ''}`}</h1>
           </a>
@@ -72,7 +90,7 @@ const Inventory = class extends Component {
           </div>
           <div className="grid-main-item">
             <Link
-              href={`/vehicle?index=${vehicleIndex}`}>
+              href={`/vehicle?index=${vehicleData.index}&search=${this.state.query}`}>
               <a>
                 <img className="grid-img" src={vehicleData.imgs[0]} />
               </a>
@@ -88,7 +106,7 @@ const Inventory = class extends Component {
             <div className="overlay-container">
               <img className="grid-img" src={vehicleData.imgs[3]} />
               <Link
-                href={`/vehicle?index=${vehicleIndex}`}>
+                href={`/vehicle?index=${vehicleData.index}&search=${this.state.query}`}>
                 <a className="overlay">
                   SEE MORE...
                 </a>
@@ -160,11 +178,11 @@ const Inventory = class extends Component {
         }
         .grid-wrapper {
           display: grid;
-          grid-template-columns: 33vw 33vw 22vw;
+          grid-template-columns: 27vw 27vw 18vw;
           grid-template-rows: auto 60px 250px 250px 250px;
           grid-gap: 20px;
-          width: 100%
-          max-width: 1500px;
+          width: 100%;
+          max-width: 1400px;
         }
         .grid-header {
           font-size: 1.5vw;
@@ -345,13 +363,13 @@ const Inventory = class extends Component {
   render = () => {
 
     const {
-      vehicles,
-      query,
-      filteredVehicleCount
+      vehicles
     } = this.state;
 
     const handleChange = this.handleChange.bind(this);
     const handleSubmit = this.handleSubmit.bind(this);
+    const handleClear = this.handleClear.bind(this);
+    const query = this.props.router.query.search || this.state.query;
     //const filterVehicles = this.filterVehicles.bind(this);
 
     return <Layout title='Inventory'>
@@ -363,14 +381,15 @@ const Inventory = class extends Component {
         </div>
       </div>
       <div className='search-container'>
-        <div className={filteredVehicleCount < 1 ? 'filtered-label' : 'hidden'}>
+        <div className={this.filteredVehicles.length < 1 ? 'filtered-label' : 'hidden'}>
           All {vehicles.length} vehicles shown. Search to narrow results
         </div>
-        <div className={filteredVehicleCount > 0 ? 'filtered-label' : 'hidden'}>
-          {filteredVehicleCount} vehicles found..
+        <div className={this.filteredVehicles.length > 0 ? 'filtered-label' : 'hidden'}>
+          {this.filteredVehicles.length} vehicles found..
+          <button onClick={handleClear}>CLEAR SEARCH</button>
         </div>
         <form className='search' onSubmit={handleSubmit}>
-          <input name='search' type="text" placeholder="Search inventory.." onChange={handleChange} />
+          <input defaultValue={query || ''} name='search' type="text" placeholder="Search Inventory.." onChange={handleChange} />
           <button type="submit"><i className="fa fa-search"></i></button>
         </form>
       </div>
@@ -387,15 +406,19 @@ const Inventory = class extends Component {
           display: flex;
           flex-direction: column;
           background-color: #E0E0E0;
-          padding: 5px;
+          padding: 0 0 0 15px;
           margin-bottom: 15px;
         }
         .filtered-label {
           font-size: 16px;
           text-align: left;
           position: absolute;
-          left: 5vw;
+          left: 12vw;
           margin-top 30px;
+        }
+        .clear-search {
+          font-size: 16px;
+          position: absolute;
         }
         .hidden {
           display: none;
@@ -424,7 +447,7 @@ const Inventory = class extends Component {
         }
         .search {
           position: absolute;
-          right: 5vw;
+          right: 12vw;
         }
         form.search input[type=text] {
           padding: 10px;
@@ -495,7 +518,6 @@ Inventory.getInitialProps = async ({ req }) => {
 
   return {
     vehicles: data,
-    query: '',
     tempQuery: ''
   }
 }
