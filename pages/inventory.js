@@ -12,8 +12,7 @@ const Inventory = class extends Component {
     query: this.props.router.query.search || '',
     vehicles: this.props.vehicles,
     filteredVehicleCount: 0,
-    isOpen: false,
-    vehicleIndex: 0
+    isOpen: false
   };
 
   filteredVehicles = [];
@@ -60,7 +59,7 @@ const Inventory = class extends Component {
       });
   }
 
-  getVehicleContainer = (vehicleData, vehicleIndex) => (
+  getVehicleContainer = (vehicleData) => (
     <div>
       <div className="listing-wrapper">
         <div className="grid-wrapper">
@@ -318,10 +317,10 @@ const Inventory = class extends Component {
       </style>
     </div>
   )
-  renderVehicle = (key, vehicleData, vehicleIndex) => (
+  renderVehicle = (key, vehicleData) => (
     <div key={key}>
       <div className="background">
-        {this.getVehicleContainer(vehicleData, vehicleIndex)}
+        {this.getVehicleContainer(vehicleData)}
       </div>
       <style jsx>{`{
         .background {
@@ -394,8 +393,8 @@ const Inventory = class extends Component {
         </form>
       </div>
       <div className='vehicles-wrapper'>
-        {this.filterVehicles(vehicles, query).map((vehicle, index) => (
-          this.renderVehicle(vehicle.id, vehicle, index)
+        {this.filterVehicles(vehicles, query).map((vehicle) => (
+          this.renderVehicle(vehicle.id, vehicle, vehicle.index)
         ))}
       </div>
       <style jsx>{`{

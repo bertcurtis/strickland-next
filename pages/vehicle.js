@@ -337,6 +337,10 @@ const Vehicle = class extends Component {
     const handleModalOpen = this.handleModalOpen.bind(this);
     const handleModalClose = this.handleModalClose.bind(this);
 
+    const matchIndex = (vehicle) => {
+      return vehicle.index == this.props.router.query.index;
+    }
+
     return <Layout title='Vehicle'>
     <Link
         href={this.props.router.query.search ? `/inventory?search=${this.props.router.query.search}` : `/inventory`}>
@@ -345,13 +349,13 @@ const Vehicle = class extends Component {
         </a>
       </Link>
 
-      <div className="header">{this.getVehicleHeader(this.props.vehicles[this.props.router.query.index])}</div>
+      <div className="header">{this.getVehicleHeader(this.props.vehicles.find(matchIndex))}</div>
       <div>
-        {this.renderVehicleImages(this.props.vehicles[this.props.router.query.index], imgIndex, handleNext, handlePrevious, handleModalOpen)}
+        {this.renderVehicleImages(this.props.vehicles.find(matchIndex), imgIndex, handleNext, handlePrevious, handleModalOpen)}
       </div>
-      <div className="content">{this.getVehicleContent(this.props.vehicles[this.props.router.query.index])}</div>
+      <div className="content">{this.getVehicleContent(this.props.vehicles.find(matchIndex))}</div>
 
-      <div>{openModal && this.getModal(this.props.vehicles[this.props.router.query.index], handleModalClose)}</div>
+      <div>{openModal && this.getModal(this.props.vehicles.find(matchIndex), handleModalClose)}</div>
       <style jsx>{`{
         .back-link {
           display: block;
