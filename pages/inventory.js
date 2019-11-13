@@ -59,6 +59,42 @@ const Inventory = class extends Component {
       });
   }
 
+  handleFilter(event) {
+    this.setState({ tempQuery: event.target.id },
+      () => {
+        if (this.state.tempQuery == '') {
+          this.setState({ filteredVehicleCount: 0 });
+          this.setState({ query: this.state.tempQuery },
+            () => {
+              if (this.state.tempQuery == '') {
+                this.setState({ query: '' }, 
+                () => {
+                  this.filteredVehicles = [];
+                  Router.push('/inventory');
+                });
+              }
+              else {
+              this.setState({ query: this.state.tempQuery }/*,
+                () => {
+                  this.setState({ filteredVehicleCount: this.filteredVehicles.length });
+                }*/);
+              event.preventDefault();
+              Router.push(`/inventory?search=${this.state.tempQuery}`);
+              }
+
+            });
+        }
+        else {
+          this.setState({ query: this.state.tempQuery }/*,
+            () => {
+              this.setState({ filteredVehicleCount: this.filteredVehicles.length });
+            }*/);
+          event.preventDefault();
+          Router.push(`/inventory?search=${this.state.tempQuery}`);
+        }
+      });
+  }
+
   getVehicleContainer = (vehicleData) => (
     <div>
       <div className="listing-wrapper">
@@ -366,6 +402,7 @@ const Inventory = class extends Component {
     } = this.state;
 
     const handleChange = this.handleChange.bind(this);
+    const handleFilter = this.handleFilter.bind(this);
     const handleSubmit = this.handleSubmit.bind(this);
     const handleClear = this.handleClear.bind(this);
     const query = this.props.router.query.search || this.state.query;
@@ -379,6 +416,11 @@ const Inventory = class extends Component {
         <div><b>no hidden fees.</b></div>
         </div>
       </div>
+      <div className="filters">
+          <button onClick={handleFilter} id='tacoma' className={this.filteredVehicles.length > 0 && query == 'tacoma' ? 'filter-applied' : 'filter'}>TACOMAS</button>
+          <button onClick={handleFilter} id='4runner' className={this.filteredVehicles.length > 0 && query == '4runner' ? 'filter-applied' : 'filter'}>4RUNNERS</button>
+          <button onClick={handleFilter} id='' className={this.filteredVehicles.length > 0 && query != 'tacoma' && query != '4runner' && query != '' ? 'filter-applied' : 'filter'}>OTHER</button>
+        </div>
       <div className='search-container'>
         <div className={this.filteredVehicles.length < 1 ? 'filtered-label' : 'hidden'}>
           All {vehicles.length} vehicles shown. Search to narrow results
@@ -436,7 +478,34 @@ const Inventory = class extends Component {
           padding: 10px;
           margin-bottom: 25px;
           align-content: center;
-       }
+        }
+       .filters {
+          position: absolute;
+          right: 40vw;
+          display: grid;
+          grid-template-columns: auto auto auto;
+          padding: 8px;
+        }
+        .filter {
+          background-color: #f1f1f1;
+          border: 1px solid grey;
+          padding: 10px;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
+        }
+        .filter-applied {
+          background-color: grey;
+          border: 1px solid grey;
+          padding: 10px;
+          font-size: 14px;
+          text-align: center;
+          cursor: pointer;
+          color: white;
+        }
+        .filter:hover {
+          background: grey;
+        }
        .vehicles-wrapper {
           display: flex;
           flex-direction: column;
@@ -489,6 +558,14 @@ const Inventory = class extends Component {
             margin-bottom: 0px;
             align-content: center;
             align-items: center;
+          }
+          .filters {
+            position: absolute;
+            right: 25vw;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            padding: 8px;
+            margin-top: -240px;
           }
           .filtered-label {
             font-size: 16px;
