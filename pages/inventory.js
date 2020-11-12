@@ -411,12 +411,14 @@ const Inventory = class extends Component {
     return <Layout title='Inventory'>
       <div className='top-content'>
         <div className='text-content'>
-        <div><b>vehicle quality unmatched.</b></div>
+        <div><b>Inventory Page undergoing maintenance. Visit our <a href="https://cars.ksl.com/search/index?keyword=strickland+auto&perPage=48">KSL page</a> which has our full up-to-date inventory!</b></div>
+        {/* <div><b>vehicle quality unmatched.</b></div>
         <div><b>smaller price tags.</b></div>
-        <div><b>no hidden fees.</b></div>
+        <div><b>no hidden fees.</b></div> */}
         </div>
       </div>
-      <div className="filters">
+      
+      {/* <div className="filters">
           <button onClick={handleFilter} id='tacoma' className={this.filteredVehicles.length > 0 && query == 'tacoma' ? 'filter-applied' : 'filter'}>TACOMAS</button>
           <button onClick={handleFilter} id='4runner' className={this.filteredVehicles.length > 0 && query == '4runner' ? 'filter-applied' : 'filter'}>4RUNNERS</button>
           <button onClick={handleFilter} id='' className={this.filteredVehicles.length > 0 && query != 'tacoma' && query != '4runner' && query != '' ? 'filter-applied' : 'filter'}>OTHER</button>
@@ -438,7 +440,7 @@ const Inventory = class extends Component {
         {this.filterVehicles(vehicles, query).map((vehicle) => (
           this.renderVehicle(vehicle.id, vehicle, vehicle.index)
         ))}
-      </div>
+      </div> */}
       <style jsx>{`{
         * {
           box-sizing: border-box;
@@ -590,10 +592,29 @@ Inventory.getInitialProps = async ({ req }) => {
   const res = await fetch('https://strickland-cars-api.herokuapp.com/cars')
   const data = await res.json()
 
+  const unique = function(arr1, arr2) {
+    for(var i=0; i<arr1.length; ++i) {
+      for(var j=0; j<arr2.length - 1; ++j) {
+        if(arr1[i].vin === arr2[j].vin)
+          arr2.splice(i, 1);
+      }
+    }
+  
+    console.log(filtered.length)
+    const final = arr1.concat(arr2);
+    return final
+  };
+  const filtered = await data.filter(function(item){
+    return item.model.toLowerCase().includes("tacoma");         
+  });
+
+  const finalArray = unique(filtered, data)
+
+
   console.log(`Car data fetched. Count: ${data.length}`)
 
   return {
-    vehicles: data,
+    vehicles: finalArray,
     tempQuery: ''
   }
 }
