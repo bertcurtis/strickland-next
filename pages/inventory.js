@@ -17,6 +17,11 @@ const Inventory = () => (
         grid-gap: 10px;
         z-index: 0;
         margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #E0E0E0;
+        padding: 0 0 0 15px;
+        margin-bottom: 15px;
       }
       `}</style>
   </Layout>
