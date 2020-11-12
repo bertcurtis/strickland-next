@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "temp": {
+  "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "scripts": {
+  "temp": {
     "dev": "node server.js",
     "build": "next build",
     "start": "next start -p $PORT",
