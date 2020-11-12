@@ -4,7 +4,10 @@ import Social from '../components/Social.js'
 const Inventory = () => (
   <Layout title='Contact Us'>
     <div className="info-section">
-    <div><b>Inventory Page undergoing maintenance. Visit our <a href='https://cars.ksl.com/search/index?keyword=strickland+auto&perPage=48'>KSL page</a> which has our full up-to-date inventory!</b></div>
+      <h1>Inventory Page undergoing maintenance.</h1> 
+      <p>
+      Visit our <a href='https://cars.ksl.com/search/index?keyword=strickland+auto&perPage=48'>KSL page</a> which has our full up-to-date inventory!
+      </p>
     </div>
     <Social />
 
