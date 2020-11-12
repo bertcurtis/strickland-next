@@ -10,13 +10,6 @@ const Inventory = () => (
 
     <style jsx>{`
       .info-section {
-        position: relative;
-        display: grid;
-        grid-template-columns: 40% 60%;
-        grid-template-rows: 45vh;
-        grid-gap: 10px;
-        z-index: 0;
-        margin-bottom: 10px;
         display: flex;
         flex-direction: column;
         background-color: #E0E0E0;
